@@ -2,9 +2,7 @@ package sample;
 
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.ScatterChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +37,10 @@ public class Controller implements Initializable {
     public ProgressBar pr6;
     public ProgressBar pr5;
     public ProgressBar pr1;
+    public ScatterChart chart;
+    public NumberAxis y_axis;
+    public NumberAxis x_axis;
+    public BubbleChart bubble;
 
 
     private Double phaseMultiplier=360.0;
@@ -53,6 +55,7 @@ public class Controller implements Initializable {
     public void setUI(){
         media=new Media(new File("D:\\WIN11\\Video\\Ikson - Lights (Official).mp4").toURI().toString());
         mediaPlayer=new MediaPlayer(media);
+        mediaPlayer.setVolume(10);
         mediaPlayer.setAudioSpectrumNumBands(8);
         mediaPlayer.setAudioSpectrumInterval(0.01);
         mediaPlayer.setAudioSpectrumListener((double timestamp,double duration,float[] magnitudes,float[] phase)->{
@@ -65,32 +68,33 @@ public class Controller implements Initializable {
                 System.out.println("Phases: "+phase[0]+", "+phase[1]
                         +", "+phase[2]+", "+phase[3]);
 
-                pr5.setPrefWidth(magnitudes[0]+magnitudeOffset);
-                pr2.setPrefWidth(magnitudes[1]+magnitudeOffset);
-                pr3.setPrefWidth(magnitudes[2]+magnitudeOffset);
-                pr4.setPrefWidth(magnitudes[3]+magnitudeOffset);
-                pr1.setPrefWidth(magnitudes[4]+magnitudeOffset);
-                pr6.setPrefWidth(magnitudes[5]+magnitudeOffset);
-                pr7.setPrefWidth(magnitudes[6]+magnitudeOffset);
-                pr8.setPrefWidth(magnitudes[7]+magnitudeOffset);
+                //pr5.setPrefWidth(magnitudes[0]+magnitudeOffset);
+//                pr2.setPrefWidth(magnitudes[1]+magnitudeOffset);
+//                pr3.setPrefWidth(magnitudes[2]+magnitudeOffset);
+//                pr4.setPrefWidth(magnitudes[3]+magnitudeOffset);
+//                pr1.setPrefWidth(magnitudes[4]+magnitudeOffset);
+//                pr6.setPrefWidth(magnitudes[5]+magnitudeOffset);
+//                pr7.setPrefWidth(magnitudes[6]+magnitudeOffset);
+//                pr8.setPrefWidth(magnitudes[7]+magnitudeOffset);
 
-                NumberAxis xaxis = new NumberAxis(35,105,5);
-                NumberAxis yaxis = new NumberAxis(1,2.2,0.1);
-                xaxis.setLabel("Weight");
-                yaxis.setLabel("Height");
+                x_axis = new NumberAxis(magnitudes[1]+magnitudeOffset,magnitudes[6]+magnitudeOffset,magnitudes[0]+magnitudeOffset);
+                 y_axis = new NumberAxis(3,18,0);
 
                 //Configuring ScatterChart
-                ScatterChart s = new ScatterChart(xaxis,yaxis);
-                s.setTitle("Perfect height according to your weight");
+                bubble = new BubbleChart(x_axis,y_axis);
+                bubble.setTitle("Perfect");
 
                 //Configuring Series and adding data to the series
                 XYChart.Series series = new XYChart.Series();
                 series.setName("Height value");
-                series.getData().add(new XYChart.Data(40,1.27));
-                series.getData().add(new XYChart.Data(45,1.35));
-                series.getData().add(new XYChart.Data(50,1.42));
-                series.getData().add(new XYChart.Data(55,1.49));
-
+                series.getData().add(new XYChart.Data(magnitudes[0]+magnitudeOffset,1));
+                series.getData().add(new XYChart.Data(magnitudes[1]+magnitudeOffset,3));
+                series.getData().add(new XYChart.Data(magnitudes[2]+magnitudeOffset,6));
+                series.getData().add(new XYChart.Data(magnitudes[3]+magnitudeOffset,9));
+                series.getData().add(new XYChart.Data(magnitudes[4]+magnitudeOffset,12));
+                series.getData().add(new XYChart.Data(magnitudes[5]+magnitudeOffset,15));
+                series.getData().add(new XYChart.Data(magnitudes[6]+magnitudeOffset,18));
+                bubble.getData().add(series);
             }
         });
     }

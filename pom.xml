@@ -13,7 +13,22 @@
             <artifactId>controlsfx</artifactId>
             <version>8.40.11</version>
         </dependency>
-        <!-- Thanks for using https://jar-download.com -->4
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>18</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
     </dependencies>
 
     <properties>
