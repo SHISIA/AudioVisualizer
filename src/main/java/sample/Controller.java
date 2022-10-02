@@ -36,7 +36,7 @@ public class Controller implements Initializable {
     private MediaPlayer mediaPlayer;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setUI();
+        setUpFileChoosing();
     }
 
     public void setUI(){
@@ -49,13 +49,6 @@ public class Controller implements Initializable {
             mediaPlayer.setAudioSpectrumListener((double timestamp,double duration,float[] magnitudes,float[] phase)->{
 
                 if (magnitudes.length>=8 && phase.length>=8){
-                    System.out.println("Timestamp: "+timestamp);
-                    System.out.println("Duration: "+duration);
-                    System.out.println("Magnitudes: "+magnitudes[0]+", "+magnitudes[1]
-                            +", "+magnitudes[2]+", "+magnitudes[3]);
-                    System.out.println("Phases: "+phase[0]+", "+phase[1]
-                            +", "+phase[2]+", "+phase[3]);
-
                     pr5.setPrefWidth(magnitudes[0]+magnitudeOffset);
                     pr2.setPrefWidth(magnitudes[1]+magnitudeOffset);
                     pr3.setPrefWidth(magnitudes[2]+magnitudeOffset);
@@ -67,13 +60,21 @@ public class Controller implements Initializable {
                 }
             });
         }
-        setUpFileChoosing();
     }
 
     public void setUpFileChoosing(){
        load.setOnAction(e->{
            FileChooser fileChooser=new FileChooser();
            File file = fileChooser.showOpenDialog(load.getScene().getWindow());
+           fileChooser.setTitle("View Media");
+           fileChooser.setInitialDirectory(
+                   new File(System.getProperty("user.home"))
+           );
+           fileChooser.getExtensionFilters().addAll(
+                   new FileChooser.ExtensionFilter("All Files", "*.*"),
+                   new FileChooser.ExtensionFilter("HQ Music/Videos", "*.mp4"),
+                   new FileChooser.ExtensionFilter("Music", "*.mp3")
+           );
            if (file!=null){
                String fName=file.toString();
                songLink.setText(fName);
@@ -83,8 +84,9 @@ public class Controller implements Initializable {
     }
 
     public void play(){
+        setUI();
+        if (!(mediaPlayer==null&& songLink.getText().isEmpty())){
             mediaPlayer.play();
-
+        }
     }
-
 }
