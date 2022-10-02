@@ -1,16 +1,19 @@
 package sample;
 
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.PopOver;
 
 import java.io.File;
 import java.net.URL;
@@ -81,6 +84,26 @@ public class Controller implements Initializable {
                song.setText(file.getName());
            }
        });
+    }
+
+    //to be implemented
+    protected void buildAndShowPopover() {
+        VBox vBox=new VBox();
+        Label label=new Label("Supported Media Formats:");
+        Label label1=new Label("MP4: Audio and Video");
+        Label label2=new Label("MP3: Audio Format");
+        vBox.setAlignment(Pos.CENTER);
+        vBox.setSpacing(10);
+        vBox.getChildren().addAll(label,label1,label2);
+        PopOver popOver = new PopOver();
+        popOver.setContentNode(vBox);
+        popOver.setAutoHide(true);
+        popOver.setAutoFix(true);
+        popOver.setHideOnEscape(true);
+        popOver.setDetachable(true);
+        popOver.setDetached(false);
+        popOver.setArrowLocation(PopOver.ArrowLocation.TOP_CENTER);
+        popOver.show(load);
     }
 
     public void play(){
