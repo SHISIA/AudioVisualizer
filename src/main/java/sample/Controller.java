@@ -17,15 +17,6 @@ public class Controller implements Initializable {
 
     private static final Duration translate_Dur=Duration.seconds(0.25);
 
-    public Circle circle;
-    public Circle circle1;
-    public Circle circle2;
-    public Circle circle3;
-    public Circle circle4;
-    public Circle circle5;
-    public Circle circle6;
-    public Circle circles;
-    public Circle circleb;
     public ProgressBar pr2;
     public ProgressBar pr3;
     public ProgressBar pr4;
