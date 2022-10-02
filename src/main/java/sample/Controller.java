@@ -68,36 +68,19 @@ public class Controller implements Initializable {
                 System.out.println("Phases: "+phase[0]+", "+phase[1]
                         +", "+phase[2]+", "+phase[3]);
 
-                //pr5.setPrefWidth(magnitudes[0]+magnitudeOffset);
-//                pr2.setPrefWidth(magnitudes[1]+magnitudeOffset);
-//                pr3.setPrefWidth(magnitudes[2]+magnitudeOffset);
-//                pr4.setPrefWidth(magnitudes[3]+magnitudeOffset);
-//                pr1.setPrefWidth(magnitudes[4]+magnitudeOffset);
-//                pr6.setPrefWidth(magnitudes[5]+magnitudeOffset);
-//                pr7.setPrefWidth(magnitudes[6]+magnitudeOffset);
-//                pr8.setPrefWidth(magnitudes[7]+magnitudeOffset);
-
-                x_axis = new NumberAxis(magnitudes[1]+magnitudeOffset,magnitudes[6]+magnitudeOffset,magnitudes[0]+magnitudeOffset);
-                 y_axis = new NumberAxis(3,18,0);
-
-                //Configuring ScatterChart
-                bubble = new BubbleChart(x_axis,y_axis);
-                bubble.setTitle("Perfect");
-
-                //Configuring Series and adding data to the series
-                XYChart.Series series = new XYChart.Series();
-                series.setName("Height value");
-                series.getData().add(new XYChart.Data(magnitudes[0]+magnitudeOffset,1));
-                series.getData().add(new XYChart.Data(magnitudes[1]+magnitudeOffset,3));
-                series.getData().add(new XYChart.Data(magnitudes[2]+magnitudeOffset,6));
-                series.getData().add(new XYChart.Data(magnitudes[3]+magnitudeOffset,9));
-                series.getData().add(new XYChart.Data(magnitudes[4]+magnitudeOffset,12));
-                series.getData().add(new XYChart.Data(magnitudes[5]+magnitudeOffset,15));
-                series.getData().add(new XYChart.Data(magnitudes[6]+magnitudeOffset,18));
-                bubble.getData().add(series);
+                pr5.setPrefWidth(magnitudes[0]+magnitudeOffset);
+                pr2.setPrefWidth(magnitudes[1]+magnitudeOffset);
+                pr3.setPrefWidth(magnitudes[2]+magnitudeOffset);
+                pr4.setPrefWidth(magnitudes[3]+magnitudeOffset);
+                pr1.setPrefWidth(magnitudes[4]+magnitudeOffset);
+                pr6.setPrefWidth(magnitudes[5]+magnitudeOffset);
+                pr7.setPrefWidth(magnitudes[6]+magnitudeOffset);
+                pr8.setPrefWidth(magnitudes[7]+magnitudeOffset);
             }
         });
     }
+
+    public void setUI
 
     public void play(){
         mediaPlayer.play();
