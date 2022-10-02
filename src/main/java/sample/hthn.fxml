@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Circle fx:id="circleb" fill="#1665ae54" layoutX="272.0" layoutY="194.0" radius="108.0" stroke="#4d8ebc" strokeType="INSIDE" />
+      <Circle fx:id="circles" fill="#1f93ff2c" layoutX="280.0" layoutY="200.0" radius="78.0" stroke="#23c2d0" strokeType="INSIDE" />
+      <Circle fx:id="circle" fill="#c0c8cfab" layoutX="278.0" layoutY="238.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Button layoutX="60.0" layoutY="61.0" mnemonicParsing="false" onAction="#play" text="Button" />
+      <Circle fx:id="circle1" fill="#4b90cdab" layoutX="294.0" layoutY="222.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="circle2" fill="#e41ec6ab" layoutX="286.0" layoutY="222.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="circle3" fill="#92da2dab" layoutX="302.0" layoutY="230.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="circle4" fill="#11c926ab" layoutX="294.0" layoutY="238.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="circle5" fill="#e40d4aab" layoutX="286.0" layoutY="230.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="circle6" fill="#b228b8ab" layoutX="294.0" layoutY="238.0" radius="8.0" stroke="#905353" strokeType="INSIDE" strokeWidth="0.0" />
+   </children>
+</AnchorPane>
