@@ -1,15 +1,12 @@
 package sample;
 
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.chart.*;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.CubicCurve;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -37,10 +34,8 @@ public class Controller implements Initializable {
     public ProgressBar pr6;
     public ProgressBar pr5;
     public ProgressBar pr1;
-    public ScatterChart chart;
-    public NumberAxis y_axis;
-    public NumberAxis x_axis;
-    public BubbleChart bubble;
+    public Label song;
+    public TextField songLink;
 
 
     private Double phaseMultiplier=360.0;
@@ -80,7 +75,9 @@ public class Controller implements Initializable {
         });
     }
 
-    public void setUI
+    public void setUpFileChoosing(){
+
+    }
 
     public void play(){
         mediaPlayer.play();
